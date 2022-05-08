@@ -25,7 +25,7 @@ public class ItemController {
 		return itemService.findAll();
 	}
 
-	//@HystrixCommand(fallbackMethod = "alternativeMethod")
+	@HystrixCommand(fallbackMethod = "alternativeMethod")
 	@GetMapping("/ver/{id}/cantidad/{cantidad}")
 	public Item detalle(@PathVariable Long id, @PathVariable Integer cantidad) {
 		return itemService.findById(id, cantidad);
